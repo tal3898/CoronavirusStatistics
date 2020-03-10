@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
             /* a code which try to read from the worldometers
             try {
                 val apiResponse = URL("https://www.worldometers.info/coronavirus/").readText()

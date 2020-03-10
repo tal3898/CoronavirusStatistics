@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="@+id/coronavirusCasesHeaderTxt" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/recoveredValueTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"

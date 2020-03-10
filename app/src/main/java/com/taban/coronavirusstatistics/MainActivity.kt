@@ -3,6 +3,9 @@ package com.taban.coronavirusstatistics
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONArray
+import org.json.JSONObject
 import java.lang.Exception
 import java.net.URL
 
@@ -16,7 +19,22 @@ class MainActivity : AppCompatActivity() {
 
         val t = Thread(Runnable {
 
+            try {
+                val apiResponse = URL("https://tal3898.github.io/CoronavirusStatistics/").readText()
+                Log.i(logTag, "the resopnse from external data : " + apiResponse)
 
+                val statisticsJson = JSONObject(apiResponse)
+                val c = CoronaStatistics(1,2,3, "abcs")
+
+
+                coronavirusCasesValueTxt.setText(c.coronaCases)
+                deathsValueTxt.setText(c.deaths)
+                recoveredValueTxt.setText(c.recovered)
+                lastUpdateTimeValueTxt.setText(c.lastUpdateTime)
+
+            } catch (e: Exception) {
+                Log.e(logTag, "Could not load external stories", e)
+            }
 
 
             /* a code which try to read from the worldometers
